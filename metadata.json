@@ -1,0 +1,10 @@
+{
+  "name": "ConsultReady",
+  "description": "Cross-platform healthcare application for patient-controlled, time-limited consultation medical record sharing via secure QR access.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
