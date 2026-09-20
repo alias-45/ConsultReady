@@ -37,17 +37,26 @@ export const PatientProfileScreen: React.FC<PatientProfileScreenProps> = ({
   return (
     <div className="flex flex-col min-h-full p-4 sm:p-6 max-w-lg mx-auto pb-24 space-y-5 animate-in fade-in duration-200">
       {/* Profile Header */}
-      <div className="rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-sm">
+      <div className="rounded-3xl border border-[#E8EFEF] bg-white p-5 sm:p-6 shadow-sm">
         <div className="flex items-center gap-4">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-black text-xl shadow-md shadow-blue-500/20">
-            {patient.name.charAt(0)}
+          <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl overflow-hidden bg-[#E8F6F4] text-[#1A7A6E] font-black text-xl border-2 border-[#C5ECE5] shadow-sm shrink-0">
+            {patient.avatarUrl ? (
+              <img
+                src={patient.avatarUrl}
+                alt={patient.name}
+                className="h-full w-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            ) : (
+              <span>{patient.name.charAt(0)}</span>
+            )}
           </div>
-          <div>
-            <h2 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900">
+          <div className="min-w-0 flex-1">
+            <h2 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 truncate">
               {patient.name}
             </h2>
-            <p className="text-xs font-medium text-slate-500">{patient.email}</p>
-            <div className="mt-1.5 flex items-center gap-2 text-xs font-semibold text-slate-600">
+            <p className="text-xs font-medium text-slate-500 truncate">{patient.email}</p>
+            <div className="mt-1.5 flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-600">
               <span>{patient.age} yrs</span>
               <span className="text-slate-300">•</span>
               <span>{patient.gender}</span>

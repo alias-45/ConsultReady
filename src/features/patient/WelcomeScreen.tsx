@@ -37,18 +37,23 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
         <div className="relative z-10 w-full rounded-3xl border border-slate-200/90 bg-gradient-to-b from-white to-slate-50/70 p-5 shadow-xl shadow-slate-200/60 text-left">
           {/* Card Header */}
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-            <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100 font-bold text-xs">
-                AS
+            <div className="flex items-center gap-2.5">
+              <div className="relative flex h-9 w-9 items-center justify-center rounded-full overflow-hidden bg-[#E8F6F4] text-[#1A7A6E] font-bold text-xs border border-[#C5ECE5] shrink-0">
+                <img
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=128&q=80"
+                  alt="Ananya Sharma"
+                  className="h-full w-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
               </div>
               <div>
                 <span className="text-xs font-bold text-slate-900 block leading-tight">Ananya Sharma</span>
                 <span className="text-[10px] text-slate-400 font-medium">B+ • 29 yrs</span>
               </div>
             </div>
-            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200/70 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-              <span>Ready</span>
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#E8F6F4] border border-[#C5ECE5] px-2 py-0.5 text-[10px] font-bold text-[#1A7A6E]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#1A7A6E]" />
+              <span>Pass Active</span>
             </span>
           </div>
 
@@ -63,7 +68,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
             </div>
             <div className="flex items-center justify-between text-xs">
               <span className="text-slate-500 font-medium">Selected:</span>
-              <span className="font-bold text-blue-600">3 Relevant Records</span>
+              <span className="font-bold text-[#1A7A6E]">3 Relevant Records</span>
             </div>
             <div className="flex items-center justify-between text-xs">
               <span className="text-slate-500 font-medium">Security:</span>
@@ -74,10 +79,10 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
           {/* QR mini preview bar */}
           <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs">
             <div className="flex items-center gap-1.5 text-slate-500">
-              <QrCode className="h-4 w-4 text-slate-700" />
+              <QrCode className="h-4 w-4 text-[#1A7A6E]" />
               <span className="font-mono text-[11px] font-semibold text-slate-700">CONSULT_QR_PASS</span>
             </div>
-            <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md">
+            <span className="text-[10px] font-bold text-[#1A7A6E] bg-[#E8F6F4] px-2 py-0.5 rounded-md border border-[#C5ECE5]">
               Encrypted
             </span>
           </div>
@@ -85,12 +90,12 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
 
         {/* Floating Trust Pills */}
         <div className="mt-3 flex items-center justify-center gap-2">
-          <span className="inline-flex items-center gap-1 rounded-full bg-white border border-slate-200/80 px-2.5 py-1 text-[11px] font-semibold text-slate-700 shadow-2xs">
+          <span className="inline-flex items-center gap-1 rounded-full bg-white border border-[#E8EFEF] px-2.5 py-1 text-[11px] font-semibold text-slate-700 shadow-2xs">
             <ShieldCheck className="h-3 w-3 text-emerald-600" />
             <span>Zero Data Leakage</span>
           </span>
-          <span className="inline-flex items-center gap-1 rounded-full bg-white border border-slate-200/80 px-2.5 py-1 text-[11px] font-semibold text-slate-700 shadow-2xs">
-            <Lock className="h-3 w-3 text-blue-600" />
+          <span className="inline-flex items-center gap-1 rounded-full bg-white border border-[#E8EFEF] px-2.5 py-1 text-[11px] font-semibold text-slate-700 shadow-2xs">
+            <Lock className="h-3 w-3 text-[#1A7A6E]" />
             <span>Patient Consent First</span>
           </span>
         </div>
@@ -113,7 +118,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
           size="md"
           variant="ghost"
         >
-          Healthcare provider or clinic? <strong className="text-blue-600 ml-1">Scan Patient QR</strong>
+          Healthcare provider or clinic? <strong className="text-[#1A7A6E] ml-1">Scan Patient QR</strong>
         </SecondaryButton>
       </div>
     </div>

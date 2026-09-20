@@ -126,12 +126,12 @@ export const QRCard: React.FC<QRCardProps> = ({
         )}
 
         {/* QR container with high-tech corner brackets */}
-        <div className="relative mx-auto flex h-64 w-64 items-center justify-center rounded-2xl border border-slate-200/90 bg-white p-3.5 shadow-sm">
+        <div className="relative mx-auto flex h-56 w-56 sm:h-64 sm:w-64 items-center justify-center rounded-2xl border border-slate-200/90 bg-white p-3.5 shadow-sm">
           {/* 4 corner alignment markers */}
-          <div className="absolute top-2 left-2 w-3.5 h-3.5 border-t-2 border-l-2 border-blue-500 rounded-tl-sm pointer-events-none" />
-          <div className="absolute top-2 right-2 w-3.5 h-3.5 border-t-2 border-r-2 border-blue-500 rounded-tr-sm pointer-events-none" />
-          <div className="absolute bottom-2 left-2 w-3.5 h-3.5 border-b-2 border-l-2 border-blue-500 rounded-bl-sm pointer-events-none" />
-          <div className="absolute bottom-2 right-2 w-3.5 h-3.5 border-b-2 border-r-2 border-blue-500 rounded-br-sm pointer-events-none" />
+          <div className="absolute top-2 left-2 w-3.5 h-3.5 border-t-2 border-l-2 border-[#1A7A6E] rounded-tl-sm pointer-events-none" />
+          <div className="absolute top-2 right-2 w-3.5 h-3.5 border-t-2 border-r-2 border-[#1A7A6E] rounded-tr-sm pointer-events-none" />
+          <div className="absolute bottom-2 left-2 w-3.5 h-3.5 border-b-2 border-l-2 border-[#1A7A6E] rounded-bl-sm pointer-events-none" />
+          <div className="absolute bottom-2 right-2 w-3.5 h-3.5 border-b-2 border-r-2 border-[#1A7A6E] rounded-br-sm pointer-events-none" />
 
           {qrDataUrl ? (
             <img
@@ -141,20 +141,20 @@ export const QRCard: React.FC<QRCardProps> = ({
             />
           ) : (
             <div className="flex flex-col items-center justify-center text-slate-400">
-              <RefreshCw className="h-8 w-8 animate-spin text-blue-500 mb-2" />
+              <RefreshCw className="h-8 w-8 animate-spin text-[#1A7A6E] mb-2" />
               <span className="text-xs font-medium">Generating encrypted token...</span>
             </div>
           )}
         </div>
 
         {/* Session ID Token display (Opaque token) */}
-        <div className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-slate-50 px-3.5 py-2 border border-slate-200/70">
-          <span className="font-mono text-xs font-bold text-slate-800 tracking-wider">
+        <div className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-slate-50 px-3.5 py-2 border border-slate-200/70 max-w-full">
+          <span className="font-mono text-xs font-bold text-slate-800 tracking-wider truncate">
             {session.id}
           </span>
           <button
             onClick={handleCopyId}
-            className="flex h-6 w-6 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-200 hover:text-slate-700 transition active:scale-95"
+            className="flex h-6 w-6 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-200 hover:text-slate-700 transition active:scale-95 shrink-0"
             title="Copy Session ID"
             aria-label="Copy session ID"
           >
@@ -170,7 +170,7 @@ export const QRCard: React.FC<QRCardProps> = ({
         <div className="mt-4 space-y-2 text-xs text-slate-600 border-t border-slate-100 pt-3.5">
           <div className="flex items-center justify-between font-medium">
             <span className="flex items-center gap-1.5 text-slate-500">
-              <Clock className="h-3.5 w-3.5 text-blue-600" />
+              <Clock className="h-3.5 w-3.5 text-[#1A7A6E]" />
               <span>Validity</span>
             </span>
             <span className="font-bold text-slate-800">24 Hours (Read-Only)</span>
@@ -178,25 +178,25 @@ export const QRCard: React.FC<QRCardProps> = ({
 
           <div className="flex items-center justify-between font-medium">
             <span className="text-slate-500">Auto-expires on</span>
-            <span className="font-semibold text-slate-700">{formattedExpiry}</span>
+            <span className="font-semibold text-slate-700 truncate">{formattedExpiry}</span>
           </div>
 
           <div className="flex items-center justify-between font-medium">
             <span className="flex items-center gap-1.5 text-slate-500">
-              <FileText className="h-3.5 w-3.5 text-indigo-500" />
+              <FileText className="h-3.5 w-3.5 text-[#1A7A6E]" />
               <span>Included Records</span>
             </span>
-            <span className="font-bold text-blue-600">
+            <span className="font-bold text-[#1A7A6E]">
               {session.selectedRecordIds.length} records selected
             </span>
           </div>
 
-          <div className="flex items-center justify-between font-medium">
-            <span className="flex items-center gap-1.5 text-slate-500">
-              <Stethoscope className="h-3.5 w-3.5 text-emerald-500" />
+          <div className="flex items-center justify-between font-medium gap-2">
+            <span className="flex items-center gap-1.5 text-slate-500 shrink-0">
+              <Stethoscope className="h-3.5 w-3.5 text-[#1A7A6E]" />
               <span>Consultation</span>
             </span>
-            <span className="font-semibold text-slate-800">
+            <span className="font-semibold text-slate-800 truncate text-right">
               {session.specialty} • {session.reason}
             </span>
           </div>

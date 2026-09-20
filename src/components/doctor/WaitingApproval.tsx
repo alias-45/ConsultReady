@@ -49,9 +49,9 @@ export const WaitingApproval: React.FC<WaitingApprovalProps> = ({
     <div className="flex flex-col items-center justify-center p-4 max-w-md mx-auto animate-in fade-in duration-300">
       {/* Animated Pulsing Beacon */}
       <div className="relative my-4 flex items-center justify-center">
-        <div className="absolute h-24 w-24 rounded-full bg-blue-500/15 animate-ping" />
-        <div className="absolute h-20 w-20 rounded-full bg-blue-500/25 animate-pulse" />
-        <div className="relative flex h-16 w-16 items-center justify-center rounded-3xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-xl shadow-blue-500/35">
+        <div className="absolute h-24 w-24 rounded-full bg-[#1A7A6E]/15 animate-ping" />
+        <div className="absolute h-20 w-20 rounded-full bg-[#1A7A6E]/25 animate-pulse" />
+        <div className="relative flex h-16 w-16 items-center justify-center rounded-3xl bg-[#1A7A6E] text-white shadow-xl shadow-[#1A7A6E]/30">
           <Radio className="h-8 w-8 animate-pulse" />
         </div>
       </div>
@@ -88,7 +88,7 @@ export const WaitingApproval: React.FC<WaitingApprovalProps> = ({
           </div>
           <div className="flex items-center justify-between">
             <span className="text-slate-500 font-medium">Authorized Scope:</span>
-            <span className="font-bold text-blue-600">
+            <span className="font-bold text-[#1A7A6E]">
               {session.selectedRecordIds.length} Medical Records
             </span>
           </div>
@@ -101,8 +101,8 @@ export const WaitingApproval: React.FC<WaitingApprovalProps> = ({
         </div>
 
         {/* Live helper message */}
-        <div className="mt-2 rounded-2xl bg-blue-50/80 p-3.5 text-xs text-blue-900 border border-blue-200/70 flex items-start gap-2.5 shadow-2xs">
-          <Smartphone className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
+        <div className="mt-2 rounded-2xl bg-[#E8F6F4]/60 p-3.5 text-xs text-[#1A7A6E] border border-[#C5ECE5] flex items-start gap-2.5 shadow-2xs">
+          <Smartphone className="h-4 w-4 text-[#1A7A6E] shrink-0 mt-0.5" />
           <p className="leading-relaxed">
             The patient has received an interactive prompt on their phone to review and claim acceptance.
           </p>

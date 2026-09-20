@@ -51,14 +51,14 @@ export const ReviewApproveScreen: React.FC<ReviewApproveScreenProps> = ({
       {/* Header */}
       <div className="mb-5">
         <div className="flex items-center justify-between mb-2">
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50/90 border border-blue-200/60 px-3 py-1 rounded-full">
-            <ShieldCheck className="h-3.5 w-3.5 text-blue-600" />
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#1A7A6E] bg-[#E8F6F4] border border-[#C5ECE5] px-3 py-1 rounded-full">
+            <ShieldCheck className="h-3.5 w-3.5 text-[#1A7A6E]" />
             <span>Step 3 of 3 • Final Verification</span>
           </span>
 
           <button
             onClick={onEdit}
-            className="flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-700 transition active:scale-95 bg-white border border-slate-200/90 rounded-xl px-2.5 py-1 shadow-2xs"
+            className="flex items-center gap-1.5 text-xs font-bold text-[#1A7A6E] hover:text-[#14655B] transition active:scale-95 bg-white border border-[#E8EFEF] rounded-xl px-2.5 py-1 shadow-2xs"
           >
             <Edit3 className="h-3.5 w-3.5" />
             <span>Edit Bundle</span>
@@ -74,24 +74,24 @@ export const ReviewApproveScreen: React.FC<ReviewApproveScreenProps> = ({
       </div>
 
       {/* Summary Card */}
-      <div className="mb-5 rounded-3xl border border-slate-200/90 bg-white p-5 shadow-sm">
+      <div className="mb-5 rounded-3xl border border-[#E8EFEF] bg-white p-5 shadow-sm">
         <div className="flex items-center justify-between pb-3.5 border-b border-slate-100">
           <div>
             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
               Selected Records
             </span>
-            <h3 className="text-xl font-black text-blue-600 mt-0.5">
+            <h3 className="text-xl font-black text-[#1A7A6E] mt-0.5">
               {selectedRecordIds.length} records selected
             </h3>
           </div>
-          <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-800 border border-emerald-200/70">
+          <span className="rounded-full bg-[#E8F6F4] px-3 py-1 text-xs font-bold text-[#1A7A6E] border border-[#C5ECE5]">
             View-Only
           </span>
         </div>
 
-        <div className="mt-3.5 flex items-center justify-between text-xs text-slate-600">
-          <span className="font-medium text-slate-500">Consultation Scope:</span>
-          <span className="font-bold text-slate-900">
+        <div className="mt-3.5 flex flex-col xs:flex-row xs:items-center justify-between gap-1 text-xs text-slate-600">
+          <span className="font-medium text-slate-500 shrink-0">Consultation Scope:</span>
+          <span className="font-bold text-slate-900 truncate">
             {specialty} • {reason}
           </span>
         </div>

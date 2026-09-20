@@ -24,21 +24,21 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
   return (
     <header
       id="app-header"
-      className={`relative z-20 flex items-center justify-between border-b border-slate-200/80 bg-white/95 px-4 py-3.5 backdrop-blur-md transition-all ${className}`}
+      className={`relative z-20 flex items-center justify-between border-b border-[#E8EFEF] bg-white/95 px-4 py-3.5 backdrop-blur-md transition-all ${className}`}
     >
       <div className="flex items-center gap-3 min-w-0">
         {showBack ? (
           <button
             id="header-back-button"
             onClick={onBack}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200/90 bg-white text-slate-700 shadow-2xs transition-all hover:border-slate-300 hover:bg-slate-50 active:scale-95 shrink-0"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200/90 bg-white text-slate-700 shadow-2xs transition-all hover:border-[#1A7A6E]/30 hover:bg-[#E8F6F4]/40 active:scale-95 shrink-0"
             aria-label="Go back"
           >
             <ArrowLeft className="h-4 w-4" />
           </button>
         ) : (
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-slate-200/90 p-1 shadow-2xs shrink-0">
-            <AppLogo className="h-7 w-7" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white border border-[#E8EFEF] p-1 shadow-2xs shrink-0">
+            <AppLogo className="h-8 w-8" />
           </div>
         )}
         <div className="min-w-0 flex-1">
@@ -49,15 +49,15 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
             {showSecurityBadge && (
               <span
                 title="Protected Medical Encryption"
-                className="inline-flex items-center gap-1 rounded-full bg-blue-50/90 border border-blue-200/60 px-2 py-0.5 text-[10px] sm:text-[11px] font-semibold text-blue-700 shrink-0"
+                className="inline-flex items-center gap-1 rounded-full bg-[#E8F6F4] border border-[#C5ECE5] px-2 py-0.5 text-[10px] sm:text-[11px] font-bold text-[#1A7A6E] shrink-0"
               >
-                <Lock className="h-2.5 w-2.5 text-blue-600" />
+                <Lock className="h-2.5 w-2.5 text-[#1A7A6E]" />
                 <span>Encrypted</span>
               </span>
             )}
           </div>
           {subtitle && (
-            <p className="truncate text-xs font-medium text-slate-500 mt-0.5">
+            <p className="truncate text-xs font-medium text-slate-400 mt-0.5">
               {subtitle}
             </p>
           )}

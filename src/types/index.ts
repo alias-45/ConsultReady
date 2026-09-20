@@ -71,6 +71,7 @@ export interface UserProfile {
   gender?: 'Female' | 'Male' | 'Other';
   age?: number;
   bloodGroup?: string;
+  avatarUrl?: string;
   doctorLicense?: string;
   hospitalAffiliation?: string;
 }

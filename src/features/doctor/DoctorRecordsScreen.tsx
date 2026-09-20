@@ -89,17 +89,22 @@ export const DoctorRecordsScreen: React.FC<DoctorRecordsScreenProps> = ({
   return (
     <div className="flex flex-col min-h-full p-4 sm:p-6 max-w-xl mx-auto pb-24 space-y-5 animate-in fade-in duration-200">
       {/* Patient Profile Header Card */}
-      <div className="rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-sm">
-        <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-          <div className="flex items-center gap-3.5">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-black text-lg shadow-sm shadow-blue-500/20">
-              {session.patientName.charAt(0)}
+      <div className="rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-6 shadow-sm">
+        <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-3 pb-4 border-b border-slate-100">
+          <div className="flex items-center gap-3.5 min-w-0">
+            <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl overflow-hidden bg-[#E8F6F4] text-[#1A7A6E] font-black text-lg border border-[#C5ECE5] shrink-0 shadow-2xs">
+              <img
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=128&q=80"
+                alt={session.patientName}
+                className="h-full w-full object-cover"
+                referrerPolicy="no-referrer"
+              />
             </div>
-            <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+            <div className="min-w-0">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block leading-tight">
                 Patient Records
               </span>
-              <h2 className="text-xl font-black tracking-tight text-slate-900">
+              <h2 className="text-base sm:text-xl font-black tracking-tight text-slate-900 truncate">
                 {session.patientName}
               </h2>
               <p className="text-xs text-slate-500 font-semibold mt-0.5">
@@ -108,23 +113,23 @@ export const DoctorRecordsScreen: React.FC<DoctorRecordsScreenProps> = ({
             </div>
           </div>
 
-          <div className="text-right">
-            <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700 border border-blue-200/60 shadow-2xs">
+          <div className="text-left xs:text-right shrink-0">
+            <span className="inline-block rounded-full bg-[#E8F6F4] px-3 py-1 text-xs font-bold text-[#1A7A6E] border border-[#C5ECE5] shadow-2xs">
               {session.specialty}
             </span>
-            <span className="block text-xs text-slate-600 font-semibold mt-1.5">
+            <span className="block text-xs text-slate-600 font-semibold mt-1">
               {session.reason}
             </span>
           </div>
         </div>
 
         {/* Read-only Doctor Notice */}
-        <div className="mt-3.5 flex items-center justify-between text-xs text-slate-500">
+        <div className="mt-3.5 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
           <span className="flex items-center gap-1.5 font-medium">
             <Lock className="h-3.5 w-3.5 text-slate-400" />
             <span>Doctor access is strictly read-only</span>
           </span>
-          <span className="font-bold text-blue-600">
+          <span className="font-bold text-[#1A7A6E]">
             {authorizedRecords.length} records authorized
           </span>
         </div>

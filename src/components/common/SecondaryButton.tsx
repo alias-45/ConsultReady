@@ -21,15 +21,15 @@ export const SecondaryButton: React.FC<SecondaryButtonProps> = ({
     outline:
       'border border-slate-200/90 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-300 active:bg-slate-100 shadow-2xs',
     ghost:
-      'bg-transparent text-slate-600 hover:bg-slate-100/80 hover:text-slate-900 active:bg-slate-200',
+      'bg-transparent text-slate-600 hover:bg-[#E8F6F4]/60 hover:text-[#1A7A6E] active:bg-[#E8F6F4]',
     soft:
-      'bg-blue-50/80 text-blue-700 hover:bg-blue-100/90 active:bg-blue-200 border border-blue-200/60 shadow-2xs'
+      'bg-[#E8F6F4] text-[#1A7A6E] hover:bg-[#DCF3EF] active:bg-[#CEEEE8] border border-[#C5ECE5] shadow-2xs'
   };
 
   const sizeStyles = {
-    sm: 'px-3.5 py-1.5 text-xs font-semibold rounded-xl gap-1.5',
-    md: 'px-4.5 py-2.5 text-sm font-semibold rounded-2xl gap-2',
-    lg: 'px-6 py-3.5 text-base font-semibold rounded-2xl gap-2.5'
+    sm: 'px-3.5 py-1.5 text-xs font-bold rounded-xl gap-1.5',
+    md: 'px-5 py-2.5 text-sm font-bold rounded-2xl gap-2',
+    lg: 'px-6 py-3.5 text-base font-bold rounded-2xl gap-2.5'
   };
 
   return (

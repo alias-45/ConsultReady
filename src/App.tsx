@@ -123,23 +123,23 @@ export default function App() {
       {/* Top Global Role & Demo Simulation Switcher Bar */}
       <nav
         aria-label="Simulation Bar"
-        className="sticky top-0 z-40 flex flex-wrap items-center justify-between border-b border-slate-200 bg-slate-900 px-4 py-2 text-white shadow-md"
+        className="sticky top-0 z-40 flex items-center justify-between border-b border-slate-200 bg-slate-900 px-3 sm:px-4 py-2 text-white shadow-md gap-2"
       >
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-white p-0.5 shrink-0 shadow-2xs">
             <AppLogo className="h-6 w-6" />
           </div>
-          <span className="font-extrabold text-sm tracking-tight hidden xs:inline">
+          <span className="font-extrabold text-xs sm:text-sm tracking-tight hidden sm:inline truncate">
             ConsultReady
           </span>
 
           {/* Role Switcher Pill */}
-          <div className="flex items-center rounded-xl bg-slate-800 p-0.5 border border-slate-700 ml-1">
+          <div className="flex items-center rounded-xl bg-slate-800 p-0.5 border border-slate-700 shrink-0">
             <button
               onClick={() => setRole('patient')}
-              className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-bold transition ${
+              className={`flex items-center gap-1 sm:gap-1.5 rounded-lg px-2 sm:px-2.5 py-1 text-xs font-bold transition whitespace-nowrap ${
                 currentRole === 'patient'
-                  ? 'bg-blue-600 text-white shadow-xs'
+                  ? 'bg-[#1A7A6E] text-white shadow-xs'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
@@ -155,28 +155,30 @@ export default function App() {
                   setDoctorScreen('scan-qr');
                 }
               }}
-              className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-bold transition ${
+              className={`flex items-center gap-1 sm:gap-1.5 rounded-lg px-2 sm:px-2.5 py-1 text-xs font-bold transition whitespace-nowrap ${
                 currentRole === 'doctor'
-                  ? 'bg-blue-600 text-white shadow-xs'
+                  ? 'bg-[#1A7A6E] text-white shadow-xs'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
               <Stethoscope className="h-3 w-3" />
-              <span>Doctor Portal</span>
+              <span className="hidden xs:inline">Doctor Portal</span>
+              <span className="xs:hidden">Doctor</span>
             </button>
           </div>
         </div>
 
         {/* Device Viewport Simulation & Demo Helper */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           {/* Quick Demo Workflow CTA */}
           <button
             onClick={handleQuickDemoFlow}
-            className="hidden md:flex items-center gap-1.5 rounded-lg bg-emerald-600/90 hover:bg-emerald-600 px-2.5 py-1 text-xs font-bold text-white transition active:scale-95"
+            className="flex items-center gap-1 rounded-lg bg-emerald-600/90 hover:bg-emerald-600 px-2 py-1 text-[11px] sm:text-xs font-bold text-white transition active:scale-95 whitespace-nowrap"
             title="Auto-load Cardiology Chest Pain flow"
           >
             <Sparkles className="h-3 w-3" />
-            <span>Cardiology Demo</span>
+            <span className="hidden sm:inline">Cardiology Demo</span>
+            <span className="sm:hidden">Demo</span>
           </button>
 
           {/* Viewport Frame toggles */}
@@ -294,7 +296,10 @@ export default function App() {
                 {patientScreen === 'records' && (
                   <MyRecordsScreen
                     onViewRecord={(rec) => setViewingRecord(rec)}
-                    onCreateConsultation={() => {
+                    onCreateConsultation={(spec?: string) => {
+                      if (spec) {
+                        setSpecialty(spec);
+                      }
                       setPatientScreen('consultation-details');
                       setBottomTab('consult');
                     }}

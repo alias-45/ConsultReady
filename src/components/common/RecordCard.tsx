@@ -30,8 +30,8 @@ export const RecordCard: React.FC<RecordCardProps> = ({
       onClick={selectable ? onToggleSelect : onView}
       className={`group relative flex items-center justify-between gap-3 rounded-2xl border bg-white p-3.5 sm:p-4 transition-all duration-200 cursor-pointer ${
         isSelected
-          ? 'border-blue-500 bg-blue-50/30 shadow-sm shadow-blue-500/10'
-          : 'border-slate-200/90 hover:border-slate-300 hover:shadow-xs'
+          ? 'border-[#1A7A6E] bg-[#E8F6F4]/35 shadow-sm shadow-[#1A7A6E]/10'
+          : 'border-slate-200/80 hover:border-[#1A7A6E]/40 hover:shadow-xs'
       }`}
     >
       <div className="flex items-center gap-3.5 min-w-0 flex-1">
@@ -41,7 +41,7 @@ export const RecordCard: React.FC<RecordCardProps> = ({
             checked={isSelected}
             onChange={onToggleSelect}
             onClick={(e) => e.stopPropagation()}
-            className="h-4.5 w-4.5 rounded-md border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer shrink-0"
+            className="h-4.5 w-4.5 rounded-md border-slate-300 text-[#1A7A6E] focus:ring-[#1A7A6E] cursor-pointer shrink-0 accent-[#1A7A6E]"
             aria-label={`Select ${record.title}`}
           />
         )}
@@ -49,25 +49,25 @@ export const RecordCard: React.FC<RecordCardProps> = ({
         <RecordIcon type={record.type} title={record.title} size="md" />
 
         <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-2">
-            <h4 className="truncate text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+          <div className="flex items-center gap-1.5 min-w-0">
+            <h4 className="truncate text-xs sm:text-sm font-bold text-slate-900 group-hover:text-[#1A7A6E] transition-colors">
               {record.title}
             </h4>
             {record.isUploaded && (
-              <span className="rounded-full bg-indigo-50 border border-indigo-200/60 px-2 py-0.5 text-[10px] font-semibold text-indigo-700 shrink-0">
+              <span className="rounded-full bg-[#E8F6F4] border border-[#C5ECE5] px-1.5 py-0.5 text-[9px] sm:text-[10px] font-bold text-[#1A7A6E] shrink-0">
                 Uploaded
               </span>
             )}
           </div>
 
-          <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-slate-500">
-            <span className="font-semibold text-slate-700">{record.type}</span>
+          <div className="mt-1 flex flex-wrap items-center gap-x-1.5 sm:gap-x-2 gap-y-0.5 text-[11px] sm:text-xs text-slate-500">
+            <span className="font-semibold text-slate-700 whitespace-nowrap">{record.type}</span>
             <span className="text-slate-300">•</span>
-            <span>{record.date}</span>
+            <span className="whitespace-nowrap">{record.date}</span>
             {record.provider && (
               <>
-                <span className="text-slate-300 hidden sm:inline">•</span>
-                <span className="truncate text-slate-400 hidden sm:inline">
+                <span className="text-slate-300 hidden md:inline">•</span>
+                <span className="truncate text-slate-400 hidden md:inline max-w-[130px]">
                   {record.provider}
                 </span>
               </>
@@ -87,7 +87,7 @@ export const RecordCard: React.FC<RecordCardProps> = ({
         {onView && (
           <button
             onClick={onView}
-            className="flex h-8 w-8 items-center justify-center rounded-xl text-slate-400 hover:bg-blue-50 hover:text-blue-600 transition-all active:scale-95"
+            className="flex h-8 w-8 items-center justify-center rounded-xl text-slate-400 hover:bg-[#E8F6F4] hover:text-[#1A7A6E] transition-all active:scale-95"
             title="View medical document"
             aria-label={`View ${record.title}`}
           >

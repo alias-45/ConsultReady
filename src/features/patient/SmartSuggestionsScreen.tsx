@@ -33,15 +33,15 @@ export const SmartSuggestionsScreen: React.FC<SmartSuggestionsScreenProps> = ({
       {/* Header */}
       <div className="mb-5">
         <div className="flex items-center justify-between mb-2">
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50/90 border border-blue-200/60 px-3 py-1 rounded-full">
-            <Sparkles className="h-3 w-3 text-blue-600" />
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#1A7A6E] bg-[#E8F6F4] border border-[#C5ECE5] px-3 py-1 rounded-full">
+            <Sparkles className="h-3 w-3 text-[#1A7A6E]" />
             <span>Step 2 of 3 • Smart Matching</span>
           </span>
 
           {/* Quick Select All / Deselect All Toggle */}
           <button
             onClick={allSelected ? deselectAll : selectAllSuggestions}
-            className="flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-700 transition active:scale-95 bg-white border border-slate-200/90 rounded-xl px-2.5 py-1 shadow-2xs"
+            className="flex items-center gap-1.5 text-xs font-bold text-[#1A7A6E] hover:text-[#14655B] transition active:scale-95 bg-white border border-[#E8EFEF] rounded-xl px-2.5 py-1 shadow-2xs"
           >
             {allSelected ? (
               <>
@@ -61,7 +61,7 @@ export const SmartSuggestionsScreen: React.FC<SmartSuggestionsScreenProps> = ({
           Suggested Records
         </h2>
         <p className="mt-1 text-xs font-semibold text-slate-500">
-          Based on <strong className="text-blue-600 font-bold">{specialty}</strong> •{' '}
+          Based on <strong className="text-[#1A7A6E] font-bold">{specialty}</strong> •{' '}
           <strong className="text-slate-800 font-bold">{reason}</strong>
         </p>
       </div>

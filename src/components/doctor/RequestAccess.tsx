@@ -42,7 +42,7 @@ export const RequestAccess: React.FC<RequestAccessProps> = ({
   return (
     <div className="flex flex-col items-center justify-center p-4 max-w-md mx-auto animate-in fade-in duration-200">
       {/* Verification Shield Icon */}
-      <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25 mb-4">
+      <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-[#1A7A6E] text-white shadow-lg shadow-[#1A7A6E]/20 mb-4">
         <ShieldCheck className="h-9 w-9 stroke-[2.2]" />
       </div>
 
@@ -57,7 +57,7 @@ export const RequestAccess: React.FC<RequestAccessProps> = ({
       <div className="mt-5 w-full rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-sm space-y-4">
         {/* Patient Demographic */}
         <div className="flex items-center gap-3.5 pb-4 border-b border-slate-100">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-700 shrink-0 font-black text-lg border border-blue-100">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E8F6F4] text-[#1A7A6E] shrink-0 font-black text-lg border border-[#C5ECE5]">
             {session.patientName.charAt(0)}
           </div>
           <div>
@@ -75,7 +75,7 @@ export const RequestAccess: React.FC<RequestAccessProps> = ({
 
         {/* Consultation Scope */}
         <div className="flex items-start gap-3">
-          <div className="p-2.5 rounded-xl bg-blue-50 text-blue-600 shrink-0 border border-blue-100">
+          <div className="p-2.5 rounded-xl bg-[#E8F6F4] text-[#1A7A6E] shrink-0 border border-[#C5ECE5]">
             <Stethoscope className="h-4 w-4" />
           </div>
           <div>
@@ -105,14 +105,14 @@ export const RequestAccess: React.FC<RequestAccessProps> = ({
 
         {/* Selected Records count */}
         <div className="flex items-start gap-3">
-          <div className="p-2.5 rounded-xl bg-indigo-50 text-indigo-600 shrink-0 border border-indigo-100">
+          <div className="p-2.5 rounded-xl bg-[#E8F6F4] text-[#1A7A6E] shrink-0 border border-[#C5ECE5]">
             <FileText className="h-4 w-4" />
           </div>
           <div>
             <span className="text-[11px] font-bold text-slate-400 block uppercase tracking-wider">
               Records Pre-Selected
             </span>
-            <span className="text-sm font-bold text-blue-600">
+            <span className="text-sm font-bold text-[#1A7A6E]">
               {session.selectedRecordIds.length} medical records authorized
             </span>
           </div>
@@ -130,7 +130,7 @@ export const RequestAccess: React.FC<RequestAccessProps> = ({
                 value={requesterName}
                 onChange={(e) => setRequesterName(e.target.value)}
                 placeholder="e.g. Dr. Sameer Kulkarni"
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50/80 py-2.5 pl-3.5 pr-8 text-xs font-semibold text-slate-800 focus:border-blue-500 focus:bg-white focus:outline-none transition shadow-2xs"
+                className="w-full rounded-2xl border border-slate-200 bg-slate-50/80 py-2.5 pl-3.5 pr-8 text-xs font-semibold text-slate-800 focus:border-[#1A7A6E] focus:bg-white focus:outline-none transition shadow-2xs"
                 required
               />
               <User className="absolute right-3 top-3 h-3.5 w-3.5 text-slate-400" />
@@ -147,7 +147,7 @@ export const RequestAccess: React.FC<RequestAccessProps> = ({
                 value={requesterRole}
                 onChange={(e) => setRequesterRole(e.target.value)}
                 placeholder="e.g. Cardiology Specialist • Metro Heart Clinic"
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50/80 py-2.5 pl-3.5 pr-8 text-xs font-medium text-slate-700 focus:border-blue-500 focus:bg-white focus:outline-none transition shadow-2xs"
+                className="w-full rounded-2xl border border-slate-200 bg-slate-50/80 py-2.5 pl-3.5 pr-8 text-xs font-medium text-slate-700 focus:border-[#1A7A6E] focus:bg-white focus:outline-none transition shadow-2xs"
                 required
               />
               <Building2 className="absolute right-3 top-3 h-3.5 w-3.5 text-slate-400" />

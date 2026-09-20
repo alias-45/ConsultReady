@@ -7,7 +7,8 @@ export const DEMO_PATIENT: UserProfile = {
   email: 'ananya.sharma@example.com',
   gender: 'Female',
   age: 29,
-  bloodGroup: 'B+'
+  bloodGroup: 'B+',
+  avatarUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=256&q=80'
 };
 
 export const DEMO_DOCTOR: UserProfile = {
@@ -16,7 +17,8 @@ export const DEMO_DOCTOR: UserProfile = {
   role: 'doctor',
   email: 'dr.kulkarni@cityheart.org',
   doctorLicense: 'MCI12345',
-  hospitalAffiliation: 'City Heart & Multispecialty Center'
+  hospitalAffiliation: 'City Heart & Multispecialty Center',
+  avatarUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=256&q=80'
 };
 
 export const SPECIALTIES = [

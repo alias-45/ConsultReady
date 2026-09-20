@@ -84,7 +84,7 @@ export const DoctorScanQRScreen: React.FC<DoctorScanQRScreenProps> = ({
         {onSwitchToPatient && (
           <button
             onClick={onSwitchToPatient}
-            className="flex items-center gap-1 rounded-xl px-2.5 py-1.5 text-xs font-bold text-blue-600 bg-blue-50/80 hover:bg-blue-100/80 transition"
+            className="flex items-center gap-1 rounded-xl px-2.5 py-1.5 text-xs font-bold text-[#1A7A6E] bg-[#E8F6F4] hover:bg-[#D5EFEA] transition"
           >
             <span>Patient View</span>
           </button>

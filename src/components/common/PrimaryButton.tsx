@@ -23,17 +23,17 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
 }) => {
   const variantStyles = {
     primary:
-      'bg-gradient-to-b from-blue-600 to-blue-700 text-white hover:from-blue-500 hover:to-blue-600 active:from-blue-700 active:to-blue-800 shadow-sm shadow-blue-500/25 border border-blue-500/30',
+      'bg-[#1A7A6E] hover:bg-[#14655B] active:bg-[#0F524A] text-white shadow-sm shadow-[#1A7A6E]/25 border border-[#1A7A6E]/30',
     success:
-      'bg-gradient-to-b from-emerald-600 to-emerald-700 text-white hover:from-emerald-500 hover:to-emerald-600 active:from-emerald-700 active:to-emerald-800 shadow-sm shadow-emerald-500/25 border border-emerald-500/30',
+      'bg-[#22A392] hover:bg-[#1C8A7B] active:bg-[#167064] text-white shadow-sm shadow-[#22A392]/25 border border-[#22A392]/30',
     danger:
-      'bg-gradient-to-b from-rose-600 to-rose-700 text-white hover:from-rose-500 hover:to-rose-600 active:from-rose-700 active:to-rose-800 shadow-sm shadow-rose-500/25 border border-rose-500/30'
+      'bg-rose-600 hover:bg-rose-500 active:bg-rose-700 text-white shadow-sm shadow-rose-500/25 border border-rose-500/30'
   };
 
   const sizeStyles = {
-    sm: 'px-3.5 py-1.5 text-xs font-semibold rounded-xl gap-1.5',
-    md: 'px-4.5 py-2.5 text-sm font-semibold rounded-2xl gap-2',
-    lg: 'px-6 py-3.5 text-base font-semibold rounded-2xl gap-2.5'
+    sm: 'px-3.5 py-1.5 text-xs font-bold rounded-xl gap-1.5',
+    md: 'px-5 py-2.5 text-sm font-bold rounded-2xl gap-2',
+    lg: 'px-6 py-3.5 text-base font-bold rounded-2xl gap-2.5'
   };
 
   return (
