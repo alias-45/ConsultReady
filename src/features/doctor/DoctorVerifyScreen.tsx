@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSessionStore } from '../../store/sessionStore';
 import { RequestAccess } from '../../components/doctor/RequestAccess';
 import { WaitingApproval } from '../../components/doctor/WaitingApproval';
@@ -27,6 +27,13 @@ export const DoctorVerifyScreen: React.FC<DoctorVerifyScreenProps> = ({
 
   const session = getSession(sessionId);
 
+  // If session is already active, transition safely after render phase!
+  useEffect(() => {
+    if (session?.status === 'active') {
+      onAccessGranted();
+    }
+  }, [session?.status, onAccessGranted]);
+
   if (!session) {
     return (
       <div className="p-4">
@@ -40,9 +47,7 @@ export const DoctorVerifyScreen: React.FC<DoctorVerifyScreenProps> = ({
     );
   }
 
-  // If session is already active, go directly to records!
   if (session.status === 'active') {
-    onAccessGranted();
     return null;
   }
 

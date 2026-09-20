@@ -8,6 +8,7 @@ interface AuthState {
   doctor: UserProfile;
 
   setRole: (role: AppRole) => void;
+  updatePatientProfile: (updated: Partial<UserProfile>) => void;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
@@ -15,6 +16,10 @@ export const useAuthStore = create<AuthState>((set) => ({
   patient: DEMO_PATIENT,
   doctor: DEMO_DOCTOR,
 
-  setRole: (role) => set({ currentRole: role })
+  setRole: (role) => set({ currentRole: role }),
+  updatePatientProfile: (updated) =>
+    set((state) => ({
+      patient: { ...state.patient, ...updated }
+    }))
 }));
 

@@ -166,8 +166,15 @@ export const QRCard: React.FC<QRCardProps> = ({
           </button>
         </div>
 
+        {/* Ticket Perforation Divider with Left & Right Cutout Notches */}
+        <div className="relative flex items-center justify-center my-4 py-1 -mx-5 sm:-mx-6">
+          <div className="absolute -left-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-slate-50 border border-slate-200/90 shadow-inner z-10" />
+          <div className="w-full border-t-2 border-dashed border-slate-200 mx-5" />
+          <div className="absolute -right-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-slate-50 border border-slate-200/90 shadow-inner z-10" />
+        </div>
+
         {/* Validity and Meta Details */}
-        <div className="mt-4 space-y-2 text-xs text-slate-600 border-t border-slate-100 pt-3.5">
+        <div className="space-y-2 text-xs text-slate-600 pt-1">
           <div className="flex items-center justify-between font-medium">
             <span className="flex items-center gap-1.5 text-slate-500">
               <Clock className="h-3.5 w-3.5 text-[#1A7A6E]" />

@@ -270,9 +270,12 @@ export default function App() {
                         setRole('doctor');
                         setDoctorScreen('scan-qr');
                       }}
-                      className="rounded-lg bg-blue-50 px-2.5 py-1 text-xs font-bold text-blue-700 hover:bg-blue-100 transition"
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-blue-50 border border-blue-200/80 px-2 sm:px-2.5 py-1 sm:py-1.5 text-[11px] sm:text-xs font-bold text-blue-700 hover:bg-blue-100 transition shrink-0 active:scale-95 shadow-2xs"
+                      title="Healthcare Provider Scanner Portal"
                     >
-                      Scanner Portal
+                      <QrCode className="h-3.5 w-3.5 text-blue-600 shrink-0" />
+                      <span className="hidden xs:inline">Scanner</span>
+                      <span className="hidden md:inline">Portal</span>
                     </button>
                   }
                 />
@@ -419,9 +422,12 @@ export default function App() {
                 rightAction={
                   <button
                     onClick={() => setRole('patient')}
-                    className="rounded-lg bg-blue-50 px-2.5 py-1 text-xs font-bold text-blue-700 hover:bg-blue-100 transition"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-blue-50 border border-blue-200/80 px-2 sm:px-2.5 py-1 sm:py-1.5 text-[11px] sm:text-xs font-bold text-blue-700 hover:bg-blue-100 transition shrink-0 active:scale-95 shadow-2xs"
+                    title="Switch to Patient Mode"
                   >
-                    Patient Mode
+                    <User className="h-3.5 w-3.5 text-blue-600 shrink-0" />
+                    <span className="hidden xs:inline">Patient</span>
+                    <span className="hidden md:inline">Mode</span>
                   </button>
                 }
               />

@@ -127,8 +127,8 @@ export const CreateConsultationScreen: React.FC<CreateConsultationScreenProps> =
             </span>
           </div>
 
-          {/* Circular Category Badges from Reference UI */}
-          <div className="grid grid-cols-4 gap-2.5 sm:gap-3 py-1">
+          {/* Specialty Category Grid with responsive 2-column mobile layout preventing text overlap */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 py-1">
             {SPECIALTIES.map((spec) => {
               const meta = SPECIALTY_META[spec] || {
                 icon: Stethoscope,
@@ -144,30 +144,36 @@ export const CreateConsultationScreen: React.FC<CreateConsultationScreenProps> =
                   type="button"
                   key={spec}
                   onClick={() => handleSpecialtyChange(spec)}
-                  className={`group flex flex-col items-center p-2 rounded-2xl transition-all duration-200 active:scale-95 ${
+                  className={`group flex items-center sm:flex-col sm:justify-center gap-2.5 sm:gap-1.5 p-2.5 sm:p-3 rounded-2xl transition-all duration-200 active:scale-95 text-left sm:text-center min-w-0 w-full ${
                     isSelected
-                      ? 'bg-[#E8F6F4]/50 border border-[#C5ECE5]'
-                      : 'hover:bg-slate-50 border border-transparent'
+                      ? 'bg-[#E8F6F4] border-2 border-[#1A7A6E] shadow-sm'
+                      : 'bg-slate-50/70 hover:bg-slate-100/80 border border-slate-200/70'
                   }`}
+                  title={spec}
                 >
                   <div
-                    className={`relative flex h-12 w-12 sm:h-13 sm:w-13 items-center justify-center rounded-full border transition-all duration-200 ${
+                    className={`relative flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl border shrink-0 transition-all duration-200 ${
                       meta.bg
                     } ${meta.border} ${meta.color} ${
                       isSelected
-                        ? 'ring-2 ring-[#1A7A6E] ring-offset-2 scale-105 shadow-sm'
+                        ? 'ring-2 ring-[#1A7A6E] ring-offset-1 scale-105 shadow-xs'
                         : 'group-hover:scale-105 shadow-2xs'
                     }`}
                   >
-                    <Icon className="h-5 w-5 sm:h-6 sm:w-6 stroke-[2.2]" />
+                    <Icon className="h-5 w-5 stroke-[2.2]" />
                   </div>
-                  <span
-                    className={`mt-1.5 text-[10px] sm:text-[11px] font-bold text-center line-clamp-1 transition-colors ${
-                      isSelected ? 'text-[#1A7A6E]' : 'text-slate-600 group-hover:text-slate-900'
-                    }`}
-                  >
-                    {spec.replace(' Medicine', '')}
-                  </span>
+                  <div className="min-w-0 flex-1 sm:w-full">
+                    <span
+                      className={`text-xs font-bold block truncate transition-colors leading-tight ${
+                        isSelected ? 'text-[#1A7A6E]' : 'text-slate-700 group-hover:text-slate-900'
+                      }`}
+                    >
+                      {spec}
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-medium block sm:hidden">
+                      {isSelected ? 'Selected' : 'Tap to select'}
+                    </span>
+                  </div>
                 </button>
               );
             })}

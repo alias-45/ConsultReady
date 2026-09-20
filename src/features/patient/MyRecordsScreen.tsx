@@ -14,7 +14,8 @@ import {
   Activity,
   Pill,
   ShieldCheck,
-  ChevronRight
+  ChevronRight,
+  Lock
 } from 'lucide-react';
 import { MedicalRecord, RecordFilter } from '../../types';
 import { useRecordsStore } from '../../store/recordsStore';
@@ -151,58 +152,57 @@ export const MyRecordsScreen: React.FC<MyRecordsScreenProps> = ({
       </div>
 
       <div className="p-4 sm:p-6 space-y-5">
-        {/* Prominent Teal Hero Banner matching "Looking for desired doctor?" in reference UI */}
+        {/* Prominent Teal Hero Banner with Doctor Consultation Imagery */}
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#1A7A6E] via-[#166E63] to-[#125A50] p-5 sm:p-6 text-white shadow-lg shadow-[#1A7A6E]/15">
           {/* Subtle decorative medical circles */}
           <div className="absolute -right-8 -bottom-8 h-36 w-36 rounded-full bg-white/5 pointer-events-none" />
           <div className="absolute right-8 -top-8 h-24 w-24 rounded-full bg-white/5 pointer-events-none" />
 
           <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="max-w-xs sm:max-w-sm space-y-1.5 flex-1 min-w-0">
-              <span className="inline-flex items-center gap-1 rounded-full bg-white/20 px-2.5 py-0.5 text-[10px] font-bold tracking-wider uppercase text-white backdrop-blur-xs">
-                <Sparkles className="h-2.5 w-2.5" />
-                <span>24-Hour Patient Pass</span>
-              </span>
+            <div className="space-y-1.5 flex-1 min-w-0">
               <h3 className="text-lg sm:text-xl font-black tracking-tight leading-snug">
                 Looking to consult a doctor?
               </h3>
-              <p className="text-xs text-white/80 leading-relaxed">
+              <p className="text-xs text-white/85 leading-relaxed max-w-sm">
                 Bundle relevant medical records into an encrypted, auto-expiring QR pass for your consultation.
               </p>
+              <div className="pt-2 flex items-center gap-2.5">
+                <button
+                  onClick={() => onCreateConsultation()}
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white text-[#1A7A6E] px-4 py-2.5 text-xs font-extrabold hover:bg-slate-50 transition active:scale-95 shadow-md shrink-0"
+                >
+                  <span>Prepare Pass</span>
+                  <ArrowRight className="h-3.5 w-3.5 stroke-[2.5]" />
+                </button>
+              </div>
             </div>
 
-            {/* Doctor avatar preview & CTA */}
-            <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end shrink-0">
-              <div className="hidden xs:flex -space-x-2 overflow-hidden items-center py-1">
+            {/* Doctor Consultation Photo Showcase */}
+            <div className="flex items-center gap-3 shrink-0 self-center sm:self-auto">
+              <div className="relative h-24 w-24 sm:h-28 sm:w-28 rounded-2xl overflow-hidden border-2 border-white/40 shadow-lg shrink-0 group bg-[#166E63]">
                 <img
-                  className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover shadow-sm"
-                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=128&q=80"
-                  alt="Doctor"
+                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=320&q=80"
+                  alt="Doctor Consultation"
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    if (target.src !== 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=320&q=80') {
+                      target.src = 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=320&q=80';
+                    }
+                  }}
                 />
-                <img
-                  className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover shadow-sm"
-                  src="https://images.unsplash.com/photo-1594824813589-3221b6d17bfa?auto=format&fit=crop&w=128&q=80"
-                  alt="Specialist"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#E8F6F4] text-[#1A7A6E] font-black text-xs ring-2 ring-white shadow-sm">
-                  +8
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent p-1.5 text-center">
+                  <span className="text-[10px] font-bold text-white block truncate">
+                    Verified Doctors
+                  </span>
                 </div>
               </div>
-
-              <button
-                onClick={() => onCreateConsultation()}
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white text-[#1A7A6E] px-4 py-2.5 text-xs font-extrabold hover:bg-slate-50 transition active:scale-95 shadow-md shrink-0 w-full sm:w-auto"
-              >
-                <span>Prepare Pass</span>
-                <ArrowRight className="h-3.5 w-3.5 stroke-[2.5]" />
-              </button>
             </div>
           </div>
         </div>
 
-        {/* Clinical Specialty Quick Badges (matching "Find your doctor" from the reference image) */}
+        {/* Clinical Specialty Quick Badges with no overlap on mobile */}
         <div>
           <div className="flex items-center justify-between mb-3">
             <div>
@@ -223,7 +223,7 @@ export const MyRecordsScreen: React.FC<MyRecordsScreenProps> = ({
           </div>
 
           <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none">
-            {SPECIALTIES.slice(0, 6).map((spec) => {
+            {SPECIALTIES.map((spec) => {
               const meta = SPECIALTY_META[spec] || {
                 icon: Stethoscope,
                 bg: 'bg-slate-100',
@@ -236,16 +236,16 @@ export const MyRecordsScreen: React.FC<MyRecordsScreenProps> = ({
                 <button
                   key={spec}
                   onClick={() => onCreateConsultation(spec)}
-                  className="group flex flex-col items-center shrink-0 active:scale-95 transition-all"
+                  className="group flex flex-col items-center shrink-0 active:scale-95 transition-all w-20"
                   title={`Start consultation for ${spec}`}
                 >
                   <div
-                    className={`flex h-13 w-13 items-center justify-center rounded-full border transition-transform duration-200 group-hover:scale-105 shadow-2xs ${meta.bg} ${meta.border} ${meta.color}`}
+                    className={`flex h-12 w-12 sm:h-13 sm:w-13 items-center justify-center rounded-2xl border transition-transform duration-200 group-hover:scale-105 shadow-2xs ${meta.bg} ${meta.border} ${meta.color}`}
                   >
-                    <Icon className="h-6 w-6 stroke-[2.2]" />
+                    <Icon className="h-5 w-5 sm:h-6 sm:w-6 stroke-[2.2]" />
                   </div>
-                  <span className="mt-1.5 text-[11px] font-bold text-slate-700 group-hover:text-[#1A7A6E] text-center max-w-[70px] truncate">
-                    {spec.replace(' Medicine', '')}
+                  <span className="mt-1.5 text-[10px] sm:text-[11px] font-bold text-slate-700 group-hover:text-[#1A7A6E] text-center w-full px-0.5 truncate block leading-tight">
+                    {spec}
                   </span>
                 </button>
               );
